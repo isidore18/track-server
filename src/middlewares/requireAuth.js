@@ -4,7 +4,6 @@ const User = mongoose.model('User');
 
 
 module.exports = (req, res, next) => {
-    console.log(req.headers);
     
     const authorization  = req.headers.authorization;
     
@@ -24,7 +23,7 @@ module.exports = (req, res, next) => {
             return res.status(401).send({error: err.message})
         }
 
-        const {userId} = payload;
+        const {userId} = payload
 
         const user = await User.findById(userId);
 
